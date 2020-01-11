@@ -8,41 +8,86 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.17.2"
+minimal_mistakes_skin: "dark"
 
+# Site settings
+locale: "en"
+title : "Guille Gonzalez"
+title_separator: "-"
+subtitle: "Occasionally writing about Swift"
+name: &name "Guille Gonzalez"
+description: &description "Guille's blog about Swift development."
+url: https://gonzalezreal.github.io
+baseurl: ""
+repository: "gonzalezreal/gonzalezreal.github.io"
 github: [metadata]
+words_per_minute: 200
+paginate: 5
+paginate_path: /page:num/
+search: true
+search_full_content: true
+
+# SEO Related
+google_site_verification : "matIXerNckmaoAKnzFBbnMlHjFFx97VSj_Uv3BG1pnY"
+
+# Social
+twitter:
+  username: &twitter "gonzalezreal"
+og_image: /assets/images/me.jpeg
+social:
+  links:
+    - "https://twitter.com/gonzalezreal"
+    - "https://github.com/gonzalezreal"
+    - "https://www.linkedin.com/in/guillermogonzalezreal/"
+
+# About
+author:
+  name: *name
+  avatar: /assets/images/me.jpeg
+  bio: "Occasional **mobile developer**. Jira ticket pusher. Converting coffee into code since the nineties. Comic book lover and movie buff."
+  location: "Madrid, Spain"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/gonzalezreal"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/gonzalezreal"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/guillermogonzalezreal/"
+
+# Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/gonzalezreal"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/gonzalezreal"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/guillermogonzalezreal/"
+      
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
 
 # Build settings
 markdown: kramdown
-remote_theme: "mmistakes/minimal-mistakes@4.17.2"
+
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
   - jekyll-include-cache
   - jekyll-paginate
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
