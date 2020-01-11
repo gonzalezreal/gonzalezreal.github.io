@@ -6,4 +6,5 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem "jekyll-remote-theme", "~> 0.4.1"
   gem "jekyll-include-cache"
+  gem "jekyll-paginate", "~> 1.1.0"
 end
