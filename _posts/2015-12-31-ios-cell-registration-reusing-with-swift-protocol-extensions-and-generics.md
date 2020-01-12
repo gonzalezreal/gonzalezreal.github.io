@@ -1,7 +1,11 @@
 ---
 layout: single
-title:  "iOS Cell Registration & Reusing with Swift Protocol Extensions and Generics"
-date:   2015-12-31 11:47:16 +0100
+title: "iOS Cell Registration and Reusing with Swift Protocol Extensions and Generics"
+tags:
+  - generics
+  - protocol extensions
+  - uikit
+date: 2015-12-31 11:47:16 +0100
 ---
 A common task when developing iOS apps is to register custom cell subclasses for both `UITableView` and `UICollectionView`. Well, that is if you don’t use Storyboards, of course.
 
@@ -46,13 +50,13 @@ First of all, it would be nice to get away with declaring a constant for every r
 We can create a **protocol for Reusable Views** and provide a default implementation constrained to `UIView` subclasses.
 
 ```swift
-protocol ReusableView: class {
+protocol ReusableView: AnyObject {
     static var defaultReuseIdentifier: String { get }
 }
 
 extension ReusableView where Self: UIView {
     static var defaultReuseIdentifier: String {
-        return NSStringFromClass(self)
+        return String(describing: self)
     }
 }
 
@@ -64,7 +68,7 @@ By making `UICollectionViewCell` conform to the `ReusableView` protocol, we get 
 
 ```swift
 let identifier = BookCell.defaultReuseIdentifier
-// identifier = "MyModule.BookCell"
+// identifier = "BookCell"
 ```
 
 Next, we can get rid of the hard-coded string we are using to load the Nib.
@@ -72,13 +76,13 @@ Next, we can get rid of the hard-coded string we are using to load the Nib.
 Let’s create a protocol for **Nib Loadable Views** and provide a default implementation using protocol extensions.
 
 ```swift
-protocol NibLoadableView: class {
+protocol NibLoadableView: AnyObject {
     static var nibName: String { get }
 }
 
 extension NibLoadableView where Self: UIView {
     static var nibName: String {
-        return NSStringFromClass(self).componentsSeparatedByString(".").last!
+        return String(describing: self)
     }
 }
 
@@ -99,25 +103,24 @@ With these two protocols in place, we can use **Swift Generics** and extend `UIC
 
 ```swift
 extension UICollectionView {
-    
-    func register<T: UICollectionViewCell where T: ReusableView>(_: T.Type) {
-        registerClass(T.self, forCellWithReuseIdentifier: T.defaultReuseIdentifier)
+    func register<T: UICollectionViewCell>(_: T.Type) where T: ReusableView {
+        register(T.self, forCellWithReuseIdentifier: T.defaultReuseIdentifier)
     }
-    
-    func register<T: UICollectionViewCell where T: ReusableView, T: NibLoadableView>(_: T.Type) {
-        let bundle = NSBundle(forClass: T.self)
+
+    func register<T: UICollectionViewCell>(_: T.Type) where T: ReusableView, T: NibLoadableView {
+        let bundle = Bundle(for: T.self)
         let nib = UINib(nibName: T.nibName, bundle: bundle)
-        
-        registerNib(nib, forCellWithReuseIdentifier: T.defaultReuseIdentifier)
+
+        register(nib, forCellWithReuseIdentifier: T.defaultReuseIdentifier)
     }
     
-    func dequeueReusableCell<T: UICollectionViewCell where T: ReusableView>(forIndexPath indexPath: NSIndexPath) -> T {
-        guard let cell = dequeueReusableCellWithReuseIdentifier(T.defaultReuseIdentifier, forIndexPath: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.defaultReuseIdentifier)")
+    func dequeueReusableCell<T: UICollectionViewCell>(_: T.Type, for indexPath: IndexPath) -> T where T: ReusableView {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: T.defaultReuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier '\(T.defaultReuseIdentifier)'")
         }
-        
+
         return cell
-    }    
+    }
 }
 ```
 
@@ -139,8 +142,7 @@ class BookListViewController: UIViewController, UICollectionViewDataSource {
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell: BookCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(BookCell.self, for: indexPath)
         
         // TODO: configure cell
     
@@ -151,4 +153,7 @@ class BookListViewController: UIViewController, UICollectionViewDataSource {
 ```
 
 ## Conclusion
-If you are coming from Objective-C it is worth to investigate powerful Swift features like Protocol Extensions and Generics to find alternate and more elegant ways to deal with Cocoa classes.
+If you are coming from Objective-C it is worth investigating powerful Swift features like Protocol Extensions and Generics to find alternate and more elegant ways to deal with Cocoa classes.
+
+The code in this post is available [here](https://github.com/gonzalezreal/Reusable) in the form of a convenient Swift Package.
+{: .notice--info}
