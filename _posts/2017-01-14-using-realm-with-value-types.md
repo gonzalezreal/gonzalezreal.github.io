@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Using Realm with Value Types"
-description: >-
+excerpt: >-
   We explore how to build a Data Persistence Layer on top of Realm, using struct
   based models and type-safe queries.
 tags:
