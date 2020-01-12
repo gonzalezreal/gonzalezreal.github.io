@@ -5,6 +5,7 @@ tags:
   - generics
   - protocol extensions
   - uikit
+  - swift
 date: 2015-12-31 11:47:16 +0100
 ---
 A common task when developing iOS apps is to register custom cell subclasses for both `UITableView` and `UICollectionView`. Well, that is if you don’t use Storyboards, of course.
