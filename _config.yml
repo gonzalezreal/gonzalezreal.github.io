@@ -17,7 +17,7 @@ title : "Guille Gonzalez"
 title_separator: "-"
 subtitle: "Occasionally writing about Swift"
 name: &name "Guille Gonzalez"
-description: &description "Guille's blog about Swift development."
+description: &description "Occasionally writing about Swift."
 url: https://gonzalezreal.github.io
 baseurl: ""
 repository: "gonzalezreal/gonzalezreal.github.io"
