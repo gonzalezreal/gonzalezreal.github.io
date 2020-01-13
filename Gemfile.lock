@@ -249,6 +249,7 @@ DEPENDENCIES
   jekyll-include-cache
   jekyll-paginate (~> 1.1.0)
   jekyll-remote-theme (~> 0.4.1)
+  jekyll-sitemap (~> 1.4.0)
 
 BUNDLED WITH
    2.1.4

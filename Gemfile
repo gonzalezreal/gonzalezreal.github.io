@@ -7,4 +7,5 @@ group :jekyll_plugins do
   gem "jekyll-remote-theme", "~> 0.4.1"
   gem "jekyll-include-cache"
   gem "jekyll-paginate", "~> 1.1.0"
+  gem 'jekyll-sitemap', "~> 1.4.0"
 end
