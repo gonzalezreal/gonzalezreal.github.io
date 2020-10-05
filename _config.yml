@@ -45,7 +45,7 @@ social:
 author:
   name: *name
   avatar: /assets/images/me.jpeg
-  bio: "Occasional **mobile developer**. Jira ticket pusher. Converting coffee into code since the nineties. Comic book lover and movie buff."
+  bio: "Mobile developer. Converting coffee into code since the nineties. Comic book lover and movie buff."
   location: "Madrid, Spain"
   links:
     - label: "GitHub"
