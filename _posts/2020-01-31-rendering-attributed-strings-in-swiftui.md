@@ -1,7 +1,10 @@
 ---
 layout: single
+classes: wide
 title: "Rendering Attributed Strings in SwiftUI"
 excerpt: We bring a UIKit based view into SwiftUI to display attributed strings and see how to make our view adjust its height to the text contents and react to SwiftUI environment changes.
+header:
+  image: /assets/images/steve-harvey-SoZ3b8LLOdo-unsplash.jpg
 tags:
   - swift
   - swiftui
@@ -9,8 +12,6 @@ tags:
   - attributed string
 date: 2020-01-31T11:04:42.908Z
 ---
-
-![](/assets/images/steve-harvey-SoZ3b8LLOdo-unsplash.jpg)
 
 In this post, we will bring a UIKit based view into SwiftUI to display attributed strings. We will see how to make our view automatically adjust its height to the text contents and react to SwiftUI environment changes.
 

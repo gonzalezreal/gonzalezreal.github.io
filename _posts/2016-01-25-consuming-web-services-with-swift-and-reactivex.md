@@ -1,5 +1,6 @@
 ---
 layout: single
+classes: wide
 title: "Consuming Web Services with Swift and ReactiveX"
 tags:
   - networking
