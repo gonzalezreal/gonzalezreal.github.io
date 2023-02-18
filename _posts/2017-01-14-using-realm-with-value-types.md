@@ -1,9 +1,12 @@
 ---
 layout: single
+classes: wide
 title: "Using Realm with Value Types"
 excerpt: >-
   We explore how to build a Data Persistence Layer on top of Realm, using struct
   based models and type-safe queries.
+header:
+  image: /assets/images/1__CWxM8S64o55tmvBhaA5hTg.png
 tags:
   - persistence
   - value types
@@ -11,8 +14,6 @@ tags:
   - swift
 date: 2017-01-14T23:35:12.783Z
 ---
-
-![](/assets/images/1__CWxM8S64o55tmvBhaA5hTg.png)
 
 In this post I’d like to explore how to build a **Data Persistence Layer** on top of **Realm**, using `struct` based models and type-safe queries.
 

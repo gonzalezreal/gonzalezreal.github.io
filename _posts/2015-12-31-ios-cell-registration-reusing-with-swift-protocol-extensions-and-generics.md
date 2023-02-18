@@ -1,5 +1,6 @@
 ---
 layout: single
+classes: wide
 title: "iOS Cell Registration and Reusing with Swift Protocol Extensions and Generics"
 tags:
   - generics

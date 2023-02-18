@@ -1,7 +1,10 @@
 ---
 layout: single
+classes: wide
 title: "Indeterminate Types with Codable in Swift"
 excerpt: We explore two different techniques to handle indeterminate types in a JSON response.
+header:
+  image: /assets/images/1__kObb4dzj0arPDMtTF__kFbA.jpg
 tags:
   - codable
   - enum
@@ -10,8 +13,6 @@ tags:
   - swift
 date: 2018-04-30T20:51:51.488Z
 ---
-
-![](/assets/images/1__kObb4dzj0arPDMtTF__kFbA.jpeg)
 
 A companion playground for this post is available [here](https://github.com/gonzalezreal/IndeterminateTypesWithCodable).
 {: .notice--info}

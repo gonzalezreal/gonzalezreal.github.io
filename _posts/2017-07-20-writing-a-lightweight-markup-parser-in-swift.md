@@ -1,7 +1,10 @@
 ---
 layout: single
+classes: wide
 title: "Writing a Lightweight Markup Parser in Swift"
 excerpt: A simple way to provide text formatting in your app.
+header:
+  image: /assets/images/1__wkW4INoitgeyB4bP4672gA.png
 tags:
   - markup
   - tokenizer
@@ -9,8 +12,6 @@ tags:
   - swift
 date: 2017-07-20T08:09:13.277Z
 ---
-
-![](/assets/images/1__wkW4INoitgeyB4bP4672gA.png)
 
 The code in this post is available [here](https://github.com/gonzalezreal/Markup) in the form of a convenient Swift Package.
 {: .notice--info}
